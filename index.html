@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Bhai! 💙</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
+    <!-- Animated Stars Background -->
+    <div class="stars-container"></div>
+    
+    <!-- Floating Balloons Layer -->
+    <div id="balloon-container"></div>
+
+    <!-- Canvas for Fireworks & Confetti -->
+    <canvas id="fx-canvas"></canvas>
+
+    <!-- Global Audio -->
+    <audio id="bg-music" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+    <!-- Music Toggle Button -->
+    <button id="music-btn" class="music-control">🎵 Play Music</button>
+
+    <!-- MAIN CONTAINER -->
+    <main class="app-container">
+
+        <!-- Page 1: Welcome Screen -->
+        <section id="page-1" class="page active">
+            <div class="card card-glow">
+                <h1 class="glow-text-gold">Hey Bhai 💙</h1>
+                <p>I have a little surprise for you.</p>
+                <button class="btn btn-gold bounce-btn" onclick="nextPage(2)">🎁 Start Surprise</button>
+            </div>
+        </section>
+
+        <!-- Page 2: Trust Question -->
+        <section id="page-2" class="page">
+            <div class="card card-glow">
+                <h2>Do you trust me?</h2>
+                <div class="btn-group">
+                    <button class="btn btn-gold" onclick="nextPage(3)">Yes 😄</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 3: Know Me Question -->
+        <section id="page-3" class="page">
+            <div class="card card-glow">
+                <h2>Do you think you know me well?</h2>
+                <div class="btn-group gap-2">
+                    <button class="btn btn-gold" onclick="nextPage(4)">Yes 😎</button>
+                    <button class="btn btn-gold" onclick="nextPage(4)">No 😂</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 4: Enjoy Most Question -->
+        <section id="page-4" class="page">
+            <div class="card card-glow">
+                <h2 id="q4-title">Do you know what I enjoy the most?</h2>
+                <div id="q4-btns" class="btn-group gap-2">
+                    <button class="btn btn-gold" onclick="revealIrritate()">Yes</button>
+                    <button class="btn btn-gold" onclick="revealIrritate()">No</button>
+                </div>
+                <div id="q4-reveal" class="reveal-box hide">
+                    <h3 class="glow-text-blue">"I enjoy irritating you the most! 😂💙"</h3>
+                    <button class="btn btn-gold mt-4" onclick="startCountdown()">Continue</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 5: Animated Countdown -->
+        <section id="page-5" class="page">
+            <div class="countdown-wrapper">
+                <div id="countdown-number" class="countdown-pop">3️⃣</div>
+            </div>
+        </section>
+
+        <!-- Page 6: Huge Birthday Reveal -->
+        <section id="page-6" class="page">
+            <div class="reveal-grand">
+                <h1 class="grand-title scaling-text">🎉 HAPPY BIRTHDAY BHAI 🎉</h1>
+                <button class="btn btn-gold mt-6" onclick="nextPage(7)">Read My Message 📜</button>
+            </div>
+        </section>
+
+        <!-- Page 7: Typing Letter -->
+        <section id="page-7" class="page">
+            <div class="card card-glow letter-box">
+                <div id="typing-text" class="typed-paragraph"></div>
+                <button id="letter-continue-btn" class="btn btn-gold hide mt-4" onclick="startSlideshowPage()">View Our Memories 📸</button>
+            </div>
+        </section>
+
+        <!-- Page 8: Auto Photo Slideshow -->
+        <section id="page-8" class="page">
+            <div class="card card-glow slideshow-wrapper">
+                <h2>Memories Forever 💫</h2>
+                <div class="slider">
+                    <img id="slideshow-img" src="photo1.jpg" alt="Bhai's Memory">
+                </div>
+                <button class="btn btn-gold mt-4" onclick="goToCakePage()">Next Surprise 🎂</button>
+            </div>
+        </section>
+
+        <!-- Page 9: Interactive Birthday Cake -->
+        <section id="page-9" class="page">
+            <div class="card card-glow interaction-box">
+                <h2>Make a Wish! 🌟</h2>
+                <div class="cake-container">
+                    <div class="cake">
+                        <div class="frosting"></div>
+                        <div class="candle" id="cake-candle">
+                            <div class="flame" id="candle-flame"></div>
+                        </div>
+                    </div>
+                </div>
+                <button id="blow-btn" class="btn btn-gold mt-6" onclick="blowCandle()">🕯 Blow Candle</button>
+            </div>
+        </section>
+
+        <!-- Final Page: Emotional Outro -->
+        <section id="final-page" class="page">
+            <div class="card card-glow final-box">
+                <p class="final-text">
+                    No matter how many birthdays come and go,<br>
+                    You'll always be one of the most special people in my life.<br><br>
+                    <strong>Happy Birthday, Bhai.</strong><br>
+                    May Allah bless you always.<br><br>
+                    <span class="glow-text-gold font-bold">Ameen. 🤍✨</span>
+                </p>
+                <button class="btn btn-gold bounce-btn mt-6" onclick="restartSurprise()">🎉 Celebrate Again</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
